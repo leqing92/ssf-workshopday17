@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Today Weather</h1>
+        <hr></hr>
+        <h2>Weather for <span data-th-text="${city}"></span></h2>
+        <h2>Temperature: <span data-th-text="${temp.temp}"></span> degree Cel</h2>
+        <h2>Temperature(feel like): <span data-th-text="${temp.feelLike}"></span> degree Cel</h2>
+        <table border = 1>
+            <thead>
+                <th>Icon</th>
+                <th colspan="2">Description</th>
+            </thead>
+            <div data-th-each = "weather : ${weathers}">
+                <tr>
+                    <td>
+                        <img data-th-src = "@{https://openweathermap.org/img/wn/{iconUrl}@2x.png(iconUrl=${weather.iconUrl})}">
+                    </td>
+                    <td>
+                        <h4>Weather : </h4></h1>
+                        <h4>Description: </h4>
+                    </td>
+                    <td>
+                        <p data-th-text = "${weather.main}"></p>
+                        <p data-th-text = "${weather.description}"></p>
+                    </td>
+                </tr>
+            </div>
+        </table> 
+        <a href="/index.html"> Back to search</a>       
+    </body>
+</html>
